@@ -95,7 +95,7 @@ def main_standalone( argc, argv ):
     
     # Since solver contains no time loop it would never execute
     # function objects so do it ourselves.
-    runTime.functionObjects_start()
+    runTime.functionObjects().start()
     
     ref.adjustPhi(phi, U, p)
     
@@ -125,7 +125,7 @@ def main_standalone( argc, argv ):
        p.write()
        pass
        
-    runTime.functionObjects_end()
+    runTime.functionObjects().end()
     
     ref.ext_Info() << "ExecutionTime = " << runTime.elapsedCpuTime() << " s" << \
               "  ClockTime = " << runTime.elapsedClockTime() << " s" << ref.nl << ref.nl
